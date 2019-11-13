@@ -8,7 +8,9 @@ router.get("/cities/get", (req, res) => {
 });
 
 // Get Cities if it has Weathers
-router.get("/weather/cities", (req, res) => {});
+router.get("/weather/cities", (req, res) => {
+  return res.json(CityRepository.getCitiesIfHasWeather());
+});
 
 // Get City with Weathers
 router.get(

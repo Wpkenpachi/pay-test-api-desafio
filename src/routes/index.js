@@ -8,17 +8,17 @@ const {
 } = require("express-validator");
 const moment = require("moment");
 
-// Get All Cities
+// Get All Cities [OK]
 router.get("/cities/get", (req, res) => {
   return res.json(CityRepository.getAll());
 });
 
-// Get Cities if it has Weathers
+// Get Cities if it has Weathers [OK]
 router.get("/weather/cities", (req, res) => {
   return res.json(CityRepository.getCitiesIfHasWeather());
 });
 
-// Get City with Weathers
+// Get City with Weathers [OK]
 router.get(
   "/cities/:id/weather",
   [

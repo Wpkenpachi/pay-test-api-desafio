@@ -1,9 +1,11 @@
 const router = require("express").Router();
-
+const CityRepository = require("../repositories/city_repository");
 const moment = require("moment");
 
 // Get All Cities
-router.get("/cities/get", (req, res) => {});
+router.get("/cities/get", (req, res) => {
+  return res.json(CityRepository.getAll());
+});
 
 // Get Cities if it has Weathers
 router.get("/weather/cities", (req, res) => {});

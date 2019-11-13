@@ -4,7 +4,7 @@
 
 # Run Server
 
-`npm start`
+`$ npm start`
 
 # Routes
 
@@ -66,3 +66,7 @@ Obs: body, params or query strings with (?) are optional.
     </tr>
   </tbody>
 </table>
+
+# Testing
+
+`$ npm run test`

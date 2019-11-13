@@ -10,7 +10,14 @@ const {
 } = require("../test/expected_data/response_data.expected");
 const BASE_URL = "http://localhost:4040";
 
+const util = require("util");
+const exec = util.promisify(require("child_process").exec);
+
 describe("Api Test", () => {
+  beforeAll(async () => {
+    await exec("npm start &");
+  });
+
   test("getAllCities", async () => {
     const { entity, status } = await rest(`${BASE_URL}/cities/get`);
     expect(status.code).toBe(200);

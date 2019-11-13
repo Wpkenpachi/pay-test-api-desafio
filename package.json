@@ -4,8 +4,10 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "nodemon src/app.js",
-    "test": "jest"
+    "dev": "nodemon src/app.js",
+    "start": "node src/app.js",
+    "test": "jest",
+    "coverage": "nyc npm run test"
   },
   "author": "wpkenpachi",
   "license": "MIT",
@@ -14,6 +16,7 @@
     "express-validator": "^6.2.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
+    "nyc": "^14.1.1",
     "rest": "^2.0.0"
   },
   "devDependencies": {

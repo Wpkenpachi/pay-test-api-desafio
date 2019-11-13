@@ -36,6 +36,25 @@ router.get(
       return res.status(422).json({ errors: errors.array() });
     }
 
+    const cityId = Number(req.params.id);
+    const { start_date, end_date } = matchedData(req, {
+      includeOptionals: false
+    });
+
+    // StartDate
+    const startDate =
+      start_date && moment(start_date, "YYYY-MM-DD").isValid()
+        ? moment(req.query.start_date, "YYYY-MM-DD").unix()
+        : false;
+
+    // EndDate
+    const endDate =
+      end_date && moment(end_date, "YYYY-MM-DD").isValid()
+        ? moment(req.query.end_date, "YYYY-MM-DD").unix()
+        : false;
+
+    console.log(cityId, start_date, end_date);
+
     res.status(200).json({});
   }
 );

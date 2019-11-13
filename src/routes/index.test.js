@@ -12,7 +12,52 @@ const BASE_URL = "http://localhost:4040";
 
 describe("Api Test", () => {
   test("getAllCities", async () => {
-    const data = await rest(`${BASE_URL}/cities/get`);
-    expect(true).toBe(true);
+    const { entity, status } = await rest(`${BASE_URL}/cities/get`);
+    expect(status.code).toBe(200);
+    expect(entity).toBe(JSON.stringify(cities_get));
+  });
+
+  test("getAllCities that has Weather available", async () => {
+    const { entity, status } = await rest(`${BASE_URL}/weather/cities`);
+    expect(status.code).toBe(200);
+    expect(entity).toBe(JSON.stringify(weather_cities));
+  });
+
+  test("Get City with Weathers", async () => {
+    const { entity, status } = await rest(`${BASE_URL}/cities/3992619/weather`);
+    expect(status.code).toBe(200);
+    expect(entity).toBe(JSON.stringify(first_city_weather));
+  });
+
+  test("Get City with Weathers and startDate filter", async () => {
+    const { entity, status } = await rest(
+      `${BASE_URL}/cities/3992619/weather?start_date=2017-03-17`
+    );
+    expect(status.code).toBe(200);
+    expect(entity).toBe(JSON.stringify(only_start_date));
+  });
+
+  test("Get City with Weathers and endDate filter", async () => {
+    const { entity, status } = await rest(
+      `${BASE_URL}/cities/3992619/weather?end_date=2017-03-15`
+    );
+    expect(status.code).toBe(200);
+    expect(entity).toBe(JSON.stringify(only_end_date));
+  });
+
+  test("Get City with Weathers between dates", async () => {
+    const { entity, status } = await rest(
+      `${BASE_URL}/cities/3992619/weather?start_date=2017-03-17&end_date=2017-03-21`
+    );
+    expect(status.code).toBe(200);
+    expect(entity).toBe(JSON.stringify(both_dates));
+  });
+
+  test("Get City with Weathers between dates, with start bigger than end", async () => {
+    const { entity, status } = await rest(
+      `${BASE_URL}/cities/3992619/weather?start_date=2017-03-17&end_date=2017-03-15`
+    );
+    expect(status.code).toBe(422);
+    expect(entity).toBe(JSON.stringify(start_bigger_than_end));
   });
 });

@@ -1,5 +1,11 @@
 const router = require("express").Router();
 const CityRepository = require("../repositories/city_repository");
+const {
+  query,
+  param,
+  validationResult,
+  matchedData
+} = require("express-validator");
 const moment = require("moment");
 
 // Get All Cities

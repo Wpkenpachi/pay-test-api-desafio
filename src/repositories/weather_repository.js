@@ -7,6 +7,10 @@ const WeatherRepository = {
     if (!cityId) return false;
     const foundWeather = _.find(Weathers, { cityId });
     return foundWeather ? foundWeather.data : [];
+  },
+
+  getAvailableCityIds: () => {
+    return _.map(Weathers, "cityId");
   }
 };
 

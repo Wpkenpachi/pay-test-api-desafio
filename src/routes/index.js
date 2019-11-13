@@ -31,6 +31,7 @@ router.get(
       .escape()
   ],
   (req, res) => {
+    let result = [];
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
@@ -53,9 +54,23 @@ router.get(
         ? moment(req.query.end_date, "YYYY-MM-DD").unix()
         : false;
 
-    console.log(cityId, start_date, end_date);
+    if (startDate || endDate) {
+      if (startDate && endDate && endDate < startDate) {
+        return res
+          .status(422)
+          .json({ msg: "end_date must be ever bigger or equal start_date" });
+      }
 
-    res.status(200).json({});
+      result = CityRepository.getCityWithWeatherBetweenDates(
+        cityId,
+        start_date ? startDate : null,
+        end_date ? endDate : null
+      );
+    } else {
+      result = CityRepository.getCityWithWeather(cityId);
+    }
+
+    return res.json(result);
   }
 );
 

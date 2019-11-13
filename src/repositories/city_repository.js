@@ -1,5 +1,6 @@
 const _ = require("lodash");
 const { City: Cities } = require("../database/load_json_database");
+const WeatherRepository = require("./weather_repository");
 
 const CityRepository = {
   getAll: () => {
@@ -27,6 +28,18 @@ const CityRepository = {
       data: _.find(Cities, { id: cityId }) || [],
       weather: WeatherRepository.getCityWeather(cityId)
     };
+  },
+
+  getCityWithWeatherBetweenDates: (cityId, initDate, endDate) => {
+    const data = {
+      data: _.find(Cities, { id: cityId }),
+      weather: WeatherRepository.getCityWeatherBetweenDates(
+        cityId,
+        initDate,
+        endDate
+      )
+    };
+    return data;
   }
 };
 

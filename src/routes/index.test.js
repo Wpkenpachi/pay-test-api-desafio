@@ -8,7 +8,7 @@ const {
   both_dates,
   start_bigger_than_end,
   cities_localization
-} = require("../test/expected_data/response_data.expected");
+} = require("../database/expected_data/response_data.expected");
 const BASE_URL = "http://localhost:4040";
 
 const util = require("util");

@@ -7,7 +7,7 @@ const {
   getCityWithWeatherEndDate,
   getCityWithWeatherBetweenDates,
   getCityByLatLong
-} = require("../test/expected_data/city_repository_data.expected");
+} = require("../database/expected_data/city_repository_data.expected");
 
 describe("CityRepository", () => {
   it("getAll", () => {

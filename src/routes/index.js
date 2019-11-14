@@ -79,6 +79,7 @@ router.get(
   }
 );
 
+// Get City with Weathers by lat and long
 router.get(
   "/cities/localization",
   [

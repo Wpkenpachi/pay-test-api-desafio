@@ -7,7 +7,10 @@ const {
   only_end_date,
   both_dates,
   start_bigger_than_end,
-  cities_localization
+  cities_localization,
+  localization_without_lat,
+  localization_without_long,
+  localization_without_lat_long
 } = require("./expected_data/response_data.expected");
 const app = require("../src/server");
 
@@ -104,6 +107,42 @@ describe("Api Test", () => {
       .then(response => {
         expect(JSON.stringify(response.body)).toEqual(
           JSON.stringify(cities_localization)
+        );
+      });
+  });
+
+  test("Get City with Weathers by long and lat without long", () => {
+    return request(app)
+      .get("/cities/localization?lat=28.700001")
+      .expect("Content-Type", /json/)
+      .expect(422)
+      .then(response => {
+        expect(JSON.stringify(response.body)).toEqual(
+          JSON.stringify(localization_without_long)
+        );
+      });
+  });
+
+  test("Get City with Weathers by long and lat without lat", () => {
+    return request(app)
+      .get("/cities/localization?long=28.700001")
+      .expect("Content-Type", /json/)
+      .expect(422)
+      .then(response => {
+        expect(JSON.stringify(response.body)).toEqual(
+          JSON.stringify(localization_without_lat)
+        );
+      });
+  });
+
+  test("Get City with Weathers by long and lat without long and lat", () => {
+    return request(app)
+      .get("/cities/localization")
+      .expect("Content-Type", /json/)
+      .expect(422)
+      .then(response => {
+        expect(JSON.stringify(response.body)).toEqual(
+          JSON.stringify(localization_without_lat_long)
         );
       });
   });

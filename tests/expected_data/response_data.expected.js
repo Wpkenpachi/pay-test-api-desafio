@@ -2515,6 +2515,20 @@ const cities_localization = {
   ]
 };
 
+const localization_without_lat = {
+  errors: [{ msg: "Invalid value", param: "lat", location: "query" }]
+};
+
+const localization_without_long = {
+  errors: [{ msg: "Invalid value", param: "long", location: "query" }]
+};
+
+const localization_without_lat_long = {
+  errors: [
+    { msg: "Invalid value", param: "lat", location: "query" },
+    { msg: "Invalid value", param: "long", location: "query" }
+  ]
+};
 
 module.exports = {
   cities_get,
@@ -2524,5 +2538,8 @@ module.exports = {
   only_end_date,
   both_dates,
   start_bigger_than_end,
-  cities_localization
+  cities_localization,
+  localization_without_lat,
+  localization_without_long,
+  localization_without_lat_long
 };

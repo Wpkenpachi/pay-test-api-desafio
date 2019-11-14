@@ -94,6 +94,12 @@ router.get(
     const { lat, long } = matchedData(req, {
       includeOptionals: false
     });
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+
     return res.json(CityRepository.getCityByLatLong(lat, long));
   }
 );

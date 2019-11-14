@@ -104,4 +104,25 @@ describe("CityRepository", () => {
     );
     expect(data.weather).toEqual(getCityByLatLong.weather);
   });
+
+  it("getCityByLatLong without long", () => {
+    const long = null;
+    const lat = 28.700001;
+    const data = CityRepository.getCityByLatLong(lat, long);
+    expect(data).toEqual(false);
+  });
+
+  it("getCityByLatLong without lat", () => {
+    const long = 28.700001;
+    const lat = null;
+    const data = CityRepository.getCityByLatLong(lat, long);
+    expect(data).toEqual(false);
+  });
+
+  it("getCityByLatLong without lat and long", () => {
+    const long = "";
+    const lat = "";
+    const data = CityRepository.getCityByLatLong(lat, long);
+    expect(data).toEqual(false);
+  });
 });

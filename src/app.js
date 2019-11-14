@@ -1,5 +1,5 @@
 const server = require("./server");
-const PORT = 4000 || 4001;
+const PORT = 4000;
 const HOST = "0.0.0.0";
 
 server.listen(PORT, HOST, () => {

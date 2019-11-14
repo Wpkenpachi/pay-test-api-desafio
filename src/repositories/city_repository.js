@@ -40,6 +40,15 @@ const CityRepository = {
       )
     };
     return data;
+  },
+
+  getCityByLatLong: (lat, long) => {
+    const city = _.find(Cities, { coord: { lon: long, lat } });
+    const weather = city ? WeatherRepository.getCityWeather(city.id) : [];
+    return {
+      data: city,
+      weather
+    };
   }
 };
 

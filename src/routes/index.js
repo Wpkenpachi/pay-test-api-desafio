@@ -91,7 +91,12 @@ router.get(
       .not()
       .isEmpty()
   ],
-  (req, res) => {}
+  (req, res) => {
+    const { lat, long } = matchedData(req, {
+      includeOptionals: false
+    });
+    return res.json(CityRepository.getCityByLatLong(lat, long));
+  }
 );
 
 module.exports = router;

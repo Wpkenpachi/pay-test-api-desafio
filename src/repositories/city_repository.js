@@ -43,7 +43,12 @@ const CityRepository = {
   },
 
   getCityByLatLong: (lat, long) => {
-    const city = _.find(Cities, { coord: { lon: long, lat } });
+    const city = _.find(Cities, city => {
+      console.log(city.coord, { lat, long });
+      if (city.coord.lat == lat && city.coord.lon == long) {
+        return city;
+      }
+    });
     const weather = city ? WeatherRepository.getCityWeather(city.id) : [];
     return {
       data: city,

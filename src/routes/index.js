@@ -10,11 +10,11 @@ const moment = require("moment");
 
 // Root Route
 router.get("/", (req, res) => {
-  res.redirect("/cities/get");
+  res.redirect("/cities");
 });
 
 // Get All Cities [OK]
-router.get("/cities/get", (req, res) => {
+router.get("/cities", (req, res) => {
   return res.json(CityRepository.getAll());
 });
 

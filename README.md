@@ -31,7 +31,7 @@ Obs: body, params or query strings with (?) are optional.
     <tr>
       <td>Get all cities</td>
       <td>GET</td>
-      <td>cities/get</td>
+      <td>cities</td>
       <td>none</td>
       <td>none</td>
       <td></td>
@@ -91,4 +91,4 @@ Obs: body, params or query strings with (?) are optional.
 
 ### Accessing
 
-Now open browser in localhost:4040
+Now open browser in http://localhost:4040

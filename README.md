@@ -60,8 +60,8 @@ Obs: body, params or query strings with (?) are optional.
       <td>GET</td>
       <td>cities/:id/weather</td>
       <td>
-        start_date (YYYY/MM/DD) <br />
-        end_date? (YYYY/MM/DD)
+        start_date (YYYY-MM-DD) <br />
+        end_date? (YYYY-MM-DD)
       </td>
       <td>none</td>
       <td>

@@ -1,9 +1,10 @@
 const server = require("express")();
 const PORT = 4040;
+const HOST = "0.0.0.0";
 const routes = require("./routes");
 
 server.use("/", routes);
 
-server.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
+server.listen(PORT, HOST, () => {
+  console.log(`Listening on: http://${HOST}:${PORT}`);
 });

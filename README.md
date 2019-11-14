@@ -10,6 +10,10 @@ Test [description](DESCRIPTION.md)
 
 `$ npm start`
 
+# Accessing Api
+
+Now open browser in localhost:4040
+
 # Routes
 
 Obs: body, params or query strings with (?) are optional.
@@ -74,3 +78,17 @@ Obs: body, params or query strings with (?) are optional.
 # Testing
 
 `$ npm run test`
+
+# Docker
+
+### Building Image
+
+`$ docker build -t pay-test-api-desafio .`
+
+### Running Image
+
+`$ docker run -p 4040:4040 -d pay-test-api-desafio`
+
+### Accessing
+
+Now open browser in localhost:4040

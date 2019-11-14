@@ -5,7 +5,7 @@ const {
   startDateWeather,
   endDateWeather,
   bothDatesWeather
-} = require("../test/expected_data/weather_repository,expected");
+} = require("../tests/expected_data/weather_repository,expected");
 
 describe("Weather Repository", () => {
   it("getAvailableIds", () => {

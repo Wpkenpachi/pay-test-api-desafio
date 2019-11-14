@@ -1,4 +1,4 @@
-const CityRepository = require("./city_repository");
+const CityRepository = require("../src/repositories/city_repository");
 const {
   getAll,
   getCitiesIfHasWeather,
@@ -7,7 +7,7 @@ const {
   getCityWithWeatherEndDate,
   getCityWithWeatherBetweenDates,
   getCityByLatLong
-} = require("../database/expected_data/city_repository_data.expected");
+} = require("./expected_data/city_repository_data.expected");
 
 describe("CityRepository", () => {
   it("getAll", () => {

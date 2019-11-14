@@ -1,4 +1,4 @@
-const { City, Weather } = require("./load_json_database");
+const { City, Weather } = require("../src/database/load_json_database");
 
 describe("LoadJsonDatabase", () => {
   it("City Shold not be null/undefined/false", () => {

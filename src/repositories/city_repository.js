@@ -44,7 +44,6 @@ const CityRepository = {
 
   getCityByLatLong: (lat, long) => {
     const city = _.find(Cities, city => {
-      console.log(city.coord, { lat, long });
       if (city.coord.lat == lat && city.coord.lon == long) {
         return city;
       }

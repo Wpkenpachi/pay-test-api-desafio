@@ -1,4 +1,4 @@
-const WeatherRepository = require("./weather_repository");
+const WeatherRepository = require("../src/repositories/weather_repository");
 const {
   getAvailableIds,
   firstWeatherObj,

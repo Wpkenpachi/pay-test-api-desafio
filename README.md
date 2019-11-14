@@ -1,18 +1,18 @@
-# Descrition
+# Description
 
 Test [description](DESCRIPTION.md)
 
-# Install
+# Installing
 
 `$ npm install`
 
-# Run Server
+# Running Server
 
 `$ npm start`
 
 # Accessing Api
 
-Now open browser in localhost:4040
+Now open browser in http://localhost:4040
 
 # Routes
 

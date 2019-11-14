@@ -6,7 +6,22 @@ Test [description](DESCRIPTION.md)
 
 `$ npm install`
 
-# Running Server
+# Docker
+
+### Building Image
+
+`$ docker build -t pay-test-api-desafio .`
+
+### Running Image
+
+`$ docker run -p 4000:4000 -d pay-test-api-desafio`
+
+### Accessing
+
+`$ docker-machine ip` #ex: 192.168.99.100
+Now open browser in http://192.168.99.100:4000
+
+# Running Server Locally
 
 `$ npm start`
 
@@ -90,19 +105,3 @@ Obs: body, params or query strings with (?) are optional.
 # Testing
 
 `$ npm run test`
-
-# Docker
-
-### Building Image
-
-`$ docker build -t pay-test-api-desafio .`
-
-### Running Image
-
-`$ docker run -p 4000:4000 -d pay-test-api-desafio`
-
-### Accessing
-
-`$ docker-machine ip` #ex: 192.168.99.100
-
-Now open browser in http://192.168.99.100:4000

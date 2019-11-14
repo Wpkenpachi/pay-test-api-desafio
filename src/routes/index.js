@@ -79,4 +79,19 @@ router.get(
   }
 );
 
+router.get(
+  "cities/localization",
+  [
+    query("lat")
+      .isInt()
+      .not()
+      .isEmpty(),
+    query("long")
+      .isInt()
+      .not()
+      .isEmpty()
+  ],
+  (req, res) => {}
+);
+
 module.exports = router;

@@ -6,7 +6,8 @@ const {
   only_start_date,
   only_end_date,
   both_dates,
-  start_bigger_than_end
+  start_bigger_than_end,
+  cities_localization
 } = require("../test/expected_data/response_data.expected");
 const BASE_URL = "http://localhost:4040";
 
@@ -19,7 +20,7 @@ describe("Api Test", () => {
   });
 
   test("getAllCities", async () => {
-    const { entity, status } = await rest(`${BASE_URL}/cities/get`);
+    const { entity, status } = await rest(`${BASE_URL}/cities`);
     expect(status.code).toBe(200);
     expect(entity).toBe(JSON.stringify(cities_get));
   });
@@ -66,5 +67,13 @@ describe("Api Test", () => {
     );
     expect(status.code).toBe(422);
     expect(entity).toBe(JSON.stringify(start_bigger_than_end));
+  });
+
+  test("Get City with Weathers by long and lat", async () => {
+    const { entity, status } = await rest(
+      `${BASE_URL}/cities/localization?long=-100.51667&lat=28.700001`
+    );
+    expect(status.code).toBe(200);
+    expect(entity).toBe(JSON.stringify(cities_localization));
   });
 });

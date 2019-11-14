@@ -5,7 +5,8 @@ const {
   getCityWithWeather,
   getCityWithWeatherStartDate,
   getCityWithWeatherEndDate,
-  getCityWithWeatherBetweenDates
+  getCityWithWeatherBetweenDates,
+  getCityByLatLong
 } = require("../test/expected_data/city_repository_data.expected");
 
 describe("CityRepository", () => {
@@ -92,5 +93,15 @@ describe("CityRepository", () => {
       start_date
     );
     expect(data.weather).toBe(false);
+  });
+
+  it("getCityByLatLong", () => {
+    const long = -100.51667;
+    const lat = 28.700001;
+    const data = CityRepository.getCityByLatLong(lat, long);
+    expect(JSON.stringify(data.data)).toEqual(
+      JSON.stringify(getCityByLatLong.data)
+    );
+    expect(data.weather).toEqual(getCityByLatLong.weather);
   });
 });

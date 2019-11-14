@@ -8,6 +8,11 @@ const {
 } = require("express-validator");
 const moment = require("moment");
 
+// Root Route
+router.get("/", (req, res) => {
+  res.redirect("/cities/get");
+});
+
 // Get All Cities [OK]
 router.get("/cities/get", (req, res) => {
   return res.json(CityRepository.getAll());

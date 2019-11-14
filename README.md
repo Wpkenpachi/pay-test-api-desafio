@@ -72,6 +72,18 @@ Obs: body, params or query strings with (?) are optional.
       </td>
       <td>Padding both of query strings you'll get results between dates</td>
     </tr>
+    <tr>
+      <td>Get City with Weathers by lat and long</td>
+      <td>GET</td>
+      <td>cities/localization</td>
+      <td>
+        lat (-13.13) <br />
+        long (31.029301)
+      </td>
+      <td>none</td>
+      <td></td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
 

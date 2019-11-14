@@ -12,7 +12,7 @@ Test [description](DESCRIPTION.md)
 
 # Accessing Api
 
-Now open browser in http://localhost:4040
+Now open browser in http://localhost:4000
 
 # Routes
 
@@ -87,8 +87,10 @@ Obs: body, params or query strings with (?) are optional.
 
 ### Running Image
 
-`$ docker run -p 4040:4040 -d pay-test-api-desafio`
+`$ docker run -p 4000:4000 -d pay-test-api-desafio`
 
 ### Accessing
 
-Now open browser in http://localhost:4040
+`$ docker-machine ip` #ex: 192.168.99.100
+
+Now open browser in http://192.168.99.100:4000

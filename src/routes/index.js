@@ -8,7 +8,7 @@ const {
 } = require("express-validator");
 const moment = require("moment");
 
-// Root Route
+// Root Route [OK]
 router.get("/", (req, res) => {
   res.redirect("/cities");
 });
@@ -79,7 +79,7 @@ router.get(
   }
 );
 
-// Get City with Weathers by lat and long
+// Get City with Weathers by lat and long [OK]
 router.get(
   "/cities/localization",
   [
